@@ -1,0 +1,69 @@
+{
+  "project": "macos_dis",
+  "locale": "ko-KR",
+  "designTarget": "macOS Tahoe-inspired Windows 11 desktop",
+  "fontStack": [
+    "Pretendard",
+    "Apple SD Gothic Neo",
+    "Segoe UI",
+    "sans-serif"
+  ],
+  "menuBar": {
+    "height": 36,
+    "cornerRadius": 12,
+    "items": ["Finder", "파일", "편집", "보기", "이동", "윈도우", "도움말"],
+    "status": ["control-center", "wifi", "battery", "datetime-ko-KR"]
+  },
+  "finder": {
+    "cornerRadius": 22,
+    "sidebarWidth": 184,
+    "sidebarSections": {
+      "즐겨찾기": ["최근 항목", "AirDrop", "응용 프로그램", "데스크탑", "문서", "다운로드"],
+      "iCloud": ["iCloud Drive", "공유됨"],
+      "위치": ["이 PC", "네트워크"]
+    }
+  },
+  "dock": {
+    "position": "bottom-center",
+    "height": 70,
+    "cornerRadius": 22,
+    "iconSize": 45,
+    "hitArea": 52,
+    "hoverScale": 1.2,
+    "hoverLift": 9,
+    "runningIndicator": true,
+    "items": ["Finder", "Browser", "Mail", "Notes", "Music", "Photos", "separator", "Theme", "Downloads", "Trash"]
+  },
+  "stageManager": {
+    "enabled": true,
+    "position": "left-center",
+    "previewWidth": 108,
+    "previewHeight": 70,
+    "gap": 16
+  },
+  "widgets": {
+    "position": "top-right",
+    "items": ["clock", "weather"],
+    "cornerRadius": 24
+  },
+  "glass": {
+    "blur": 30,
+    "saturation": 1.35,
+    "darkAlphaStart": 0.22,
+    "darkAlphaEnd": 0.10,
+    "lightAlphaStart": 0.60,
+    "lightAlphaEnd": 0.28
+  },
+  "windowsIntegration": {
+    "recommendedRoles": {
+      "dockAndStatusBar": ["MyDockFinder", "Winstep Nexus"],
+      "widgets": ["uWidgets", "Rainmeter"],
+      "explorerBlur": ["ExplorerBlurMica"],
+      "themePatching": ["SecureUxTheme"],
+      "icons": ["7TSP-compatible pack"],
+      "extras": ["QuickLook", "WinDynamicDesktop", "PowerToys"]
+    },
+    "safeDefault": "visual-layer-only",
+    "systemPatchRequiresRestorePoint": true
+  }
+}
