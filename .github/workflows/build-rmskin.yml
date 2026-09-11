@@ -19,6 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare output directory
+        run: mkdir -p dist
+
       - name: Build valid .rmskin
         id: builder
         uses: 2bndy5/rmskin-action@v2.0.4
