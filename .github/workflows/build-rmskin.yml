@@ -1,0 +1,34 @@
+name: Build Rainmeter Package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rainmeter/**'
+      - 'tools/build-rmskin.ps1'
+      - '.github/workflows/build-rmskin.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build valid .rmskin
+        id: builder
+        uses: 2bndy5/rmskin-action@v2.0.4
+        with:
+          path: rainmeter
+          dir-out: dist
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos_dis_KR-rmskin
+          path: dist/*.rmskin
+          if-no-files-found: error
