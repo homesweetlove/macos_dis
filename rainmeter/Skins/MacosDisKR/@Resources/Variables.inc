@@ -1,4 +1,4 @@
-[Variables]
+﻿[Variables]
 FontFace=Pretendard
 FontFallback=Malgun Gothic
 TextColor=245,247,250,245
