@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>macos_dis · Korean macOS Windows concept</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="desktop" id="desktop">
+    <div class="wallpaper-glow glow-a"></div>
+    <div class="wallpaper-glow glow-b"></div>
+
+    <header class="menubar glass">
+      <div class="menu-left">
+        <button class="apple menu-trigger" data-menu="apple" aria-label="시스템 메뉴">◆</button>
+        <button class="app-name menu-trigger" data-menu="finder">Finder</button>
+        <button class="menu-trigger" data-menu="file">파일</button>
+        <button class="menu-trigger" data-menu="edit">편집</button>
+        <button class="menu-trigger" data-menu="view">보기</button>
+        <button class="menu-trigger" data-menu="go">이동</button>
+        <button class="menu-trigger" data-menu="window">윈도우</button>
+        <button class="menu-trigger" data-menu="help">도움말</button>
+      </div>
+      <div class="menu-right">
+        <button class="status-chip" title="제어 센터">⌁</button>
+        <button class="status-chip" title="Wi‑Fi">◒</button>
+        <button class="status-chip" title="배터리"><span class="battery"><i></i></span></button>
+        <button class="status-chip date-time" id="dateTime">9월 11일 금요일 오후 3:14</button>
+      </div>
+    </header>
+
+    <section class="desktop-space">
+      <aside class="stage-manager" aria-label="스테이지 매니저">
+        <button class="stage-card active" data-window="finderWindow">
+          <span class="stage-preview preview-finder"><i></i><i></i><i></i></span>
+          <span>Finder</span>
+        </button>
+        <button class="stage-card" data-window="notesWindow">
+          <span class="stage-preview preview-notes"><i></i><i></i></span>
+          <span>메모</span>
+        </button>
+        <button class="stage-card" data-window="browserWindow">
+          <span class="stage-preview preview-browser"><i></i></span>
+          <span>브라우저</span>
+        </button>
+      </aside>
+
+      <section class="widget-stack" aria-label="데스크톱 위젯">
+        <article class="widget clock-widget glass-soft">
+          <p class="eyebrow">서울</p>
+          <div class="big-time" id="bigTime">15:14</div>
+          <p class="subtle" id="fullDate">2026년 9월 11일 금요일</p>
+        </article>
+        <article class="widget weather-widget glass-soft">
+          <div>
+            <p class="eyebrow">오늘</p>
+            <strong>맑음</strong>
+            <p class="subtle">집중하기 좋은 오후</p>
+          </div>
+          <div class="weather-mark">☼</div>
+        </article>
+      </section>
+
+      <article class="window finder-window glass" id="finderWindow">
+        <div class="window-toolbar">
+          <div class="traffic-lights" aria-label="창 제어">
+            <button class="traffic close" title="닫기"></button>
+            <button class="traffic minimize" title="최소화"></button>
+            <button class="traffic zoom" title="확대"></button>
+          </div>
+          <div class="toolbar-nav">
+            <button>‹</button><button>›</button>
+          </div>
+          <div class="window-title">홈</div>
+          <div class="toolbar-actions">
+            <button title="보기">▦</button>
+            <button title="공유">↗</button>
+            <button title="검색">⌕</button>
+          </div>
+        </div>
+
+        <div class="finder-body">
+          <nav class="sidebar">
+            <div class="sidebar-section">
+              <p>즐겨찾기</p>
+              <button class="selected"><span>◴</span> 최근 항목</button>
+              <button><span>◉</span> AirDrop</button>
+              <button><span>▦</span> 응용 프로그램</button>
+              <button><span>▣</span> 데스크탑</button>
+              <button><span>▤</span> 문서</button>
+              <button><span>⇩</span> 다운로드</button>
+            </div>
+            <div class="sidebar-section">
+              <p>iCloud</p>
+              <button><span>☁</span> iCloud Drive</button>
+              <button><span>⌘</span> 공유됨</button>
+            </div>
+            <div class="sidebar-section">
+              <p>위치</p>
+              <button><span>◫</span> 이 PC</button>
+              <button><span>◌</span> 네트워크</button>
+            </div>
+          </nav>
+
+          <section class="finder-content">
+            <div class="content-head">
+              <div>
+                <p class="eyebrow">즐겨찾기</p>
+                <h1>최근 항목</h1>
+              </div>
+              <div class="view-switch"><button class="active">▦</button><button>☷</button></div>
+            </div>
+            <div class="file-grid">
+              <button class="file-card folder"><span class="folder-icon"></span><strong>디자인</strong><small>오늘, 오후 2:48</small></button>
+              <button class="file-card folder"><span class="folder-icon"></span><strong>프로젝트</strong><small>오늘, 오후 1:17</small></button>
+              <button class="file-card folder"><span class="folder-icon"></span><strong>다운로드</strong><small>어제</small></button>
+              <button class="file-card document"><span class="doc-icon">KR</span><strong>macos_dis</strong><small>README.md</small></button>
+              <button class="file-card document"><span class="doc-icon">UI</span><strong>디자인 시스템</strong><small>Markdown</small></button>
+              <button class="file-card image-file"><span class="image-icon">◒</span><strong>배경화면</strong><small>PNG 이미지</small></button>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <article class="window mini-window glass hidden" id="notesWindow">
+        <div class="mini-title"><div class="traffic-lights"><i class="traffic close"></i><i class="traffic minimize"></i><i class="traffic zoom"></i></div><strong>메모</strong></div>
+        <div class="note-paper"><span>오늘</span><h2>macos_dis</h2><p>한국어가 자연스럽게 들어가는 macOS 감성 Windows UI.</p></div>
+      </article>
+
+      <article class="window mini-window browser glass hidden" id="browserWindow">
+        <div class="mini-title"><div class="traffic-lights"><i class="traffic close"></i><i class="traffic minimize"></i><i class="traffic zoom"></i></div><strong>Safari 느낌의 브라우저</strong></div>
+        <div class="browser-page"><div class="search-pill">macos_dis 검색 또는 주소 입력</div><h2>즐겨찾기</h2><div class="favorites"><span>G</span><span>GH</span><span>YT</span><span>+</span></div></div>
+      </article>
+
+      <div class="context-menu glass" id="contextMenu" role="menu" aria-hidden="true">
+        <button>새 폴더</button><button>정보 가져오기</button><div></div><button>보기 옵션 표시</button><button>배경화면 변경…</button>
+      </div>
+
+      <div class="menu-popover glass" id="menuPopover" aria-hidden="true"></div>
+    </section>
+
+    <nav class="dock glass" aria-label="Dock">
+      <button class="dock-item active" data-window="finderWindow" aria-label="Finder"><span class="icon finder-icon">◐</span><i></i></button>
+      <button class="dock-item" data-window="browserWindow" aria-label="브라우저"><span class="icon safari-icon">⌁</span><i></i></button>
+      <button class="dock-item" aria-label="메일"><span class="icon mail-icon">✉</span><i></i></button>
+      <button class="dock-item" data-window="notesWindow" aria-label="메모"><span class="icon notes-icon">≡</span><i></i></button>
+      <button class="dock-item" aria-label="음악"><span class="icon music-icon">♪</span><i></i></button>
+      <button class="dock-item" aria-label="사진"><span class="icon photos-icon">✦</span><i></i></button>
+      <span class="dock-separator"></span>
+      <button class="dock-item" id="themeToggle" aria-label="라이트/다크 전환"><span class="icon settings-icon">◑</span></button>
+      <button class="dock-item" aria-label="다운로드"><span class="icon downloads-icon">⇩</span></button>
+      <button class="dock-item" aria-label="휴지통"><span class="icon trash-icon">⌫</span></button>
+    </nav>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
