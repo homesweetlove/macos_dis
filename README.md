@@ -1,91 +1,91 @@
-# macos_dis
+# macos_dis KR — Rainmeter macOS Desktop
 
-Windows에서 **실제로 사용하는 한국어 macOS 스타일 Rainmeter 데스크톱 세트**입니다.
+Windows에서 **Rainmeter로 실제 사용하기 위한 한국어 macOS 스타일 데스크톱 스킨 세트**입니다.
 
-`Macified-Windows`, `Macnify-Windows`, `macos-dock-for-windows`의 구성과 디자인 방향을 참고해 한국어 환경에 맞게 다시 구성했습니다.
+이 저장소의 메인은 더 이상 웹 목업이 아닙니다. `rainmeter/` 아래의 스킨이 실제 사용 대상이며, GitHub Actions에서 설치 가능한 `.rmskin` 패키지를 자동 생성합니다.
 
-## 현재 핵심: Rainmeter
+## 포함된 Rainmeter 스킨
 
-이 저장소의 메인 결과물은 웹 목업이 아니라 `rainmeter/` 아래의 실제 Rainmeter 스킨입니다.
-
-포함된 스킨:
-
-- **Setup** — 한 번에 전체 스킨 불러오기 / 설정 열기
-- **MenuBar** — `Finder · 파일 · 편집 · 보기 · 이동 · 윈도우 · 도움말` 한국어 상단바
-- **Clock** — 큰 시계 + `9월 11일 금요일` 형식의 한국어 날짜
-- **System** — CPU / 메모리 / C: 사용량 / 네트워크
-- **Dock** — 탐색기 / 브라우저 / 터미널 / 설정 / 휴지통 런처
+- **MenuBar** — 한국어 macOS 스타일 상단 메뉴바
+- **Clock** — 한국어 날짜/요일/시간 위젯
+- **System** — CPU / RAM / 디스크 / 네트워크 위젯
+- **Dock** — macOS 스타일 런처 Dock
+- **Setup** — 전체 스킨 불러오기, 화면 자동 배치, 다크/라이트 전환
 
 ```text
 rainmeter/
-├─ RMSKIN.ini
 └─ Skins/
    └─ MacosDisKR/
       ├─ @Resources/
       │  ├─ Variables.inc
       │  └─ Scripts/DateKR.lua
-      ├─ Setup/Setup.ini
       ├─ MenuBar/MenuBar.ini
       ├─ Clock/Clock.ini
       ├─ System/System.ini
-      └─ Dock/Dock.ini
+      ├─ Dock/Dock.ini
+      └─ Setup/Setup.ini
 ```
 
 ## 설치
 
-### 1. 자동 빌드된 `.rmskin`
+1. Rainmeter를 설치합니다.
+2. 이 저장소의 **Actions → Build Rainmeter Package**에서 최신 성공 빌드의 `macos_dis_KR-rmskin` 아티팩트를 받습니다.
+3. 압축을 풀고 `.rmskin` 파일을 더블클릭해 설치합니다.
+4. Rainmeter에서 `MacosDisKR\\Setup\\Setup.ini`를 불러옵니다.
+5. **전체 불러오기 + 추천 배치**를 누르면 메뉴바 / 시계 / 시스템 / Dock이 자동 배치됩니다.
 
-`main`에 Rainmeter 파일이 변경되면 GitHub Actions가 설치 가능한 `.rmskin` 패키지를 자동 생성합니다.
+## 현재 디자인 방향
 
-Actions의 **Build Rainmeter Package** 실행 결과에서 `macos_dis_KR-rmskin` 아티팩트를 내려받아 `.rmskin`을 더블클릭 → **Install** 하면 됩니다.
+세 프로젝트를 참고해 실제 Rainmeter에서 가볍게 쓸 수 있도록 재구성했습니다.
 
-### 2. 직접 빌드
+- `Runixe786/Macified-Windows` — 전체 macOS 데스크톱 구성과 Rainmeter 조합
+- `SuperSpacer54376/Macnify-Windows` — Tahoe 계열 글래스 / 위젯 / 상태바 방향
+- `rollecode/macos-dock-for-windows` — 미니멀 Dock 비율과 런처 배치
 
-Windows PowerShell:
+## 한국어 최적화
 
-```powershell
-.\tools\build-rmskin.ps1
-```
+영문 UI를 단순 번역하지 않고 한국어 길이에 맞춰 메뉴 폭과 배치를 조정했습니다.
 
-정식 Rainmeter 패키지 포맷을 생성하는 `rmskin-builder`를 사용합니다.
-
-### 3. 수동 설치
-
-`rainmeter/Skins/MacosDisKR`를 아래로 복사합니다.
+상단 기본 메뉴:
 
 ```text
-%USERPROFILE%\Documents\Rainmeter\Skins\MacosDisKR
+Finder   파일   편집   보기   이동   윈도우   도움말
 ```
 
-그 다음 Rainmeter → Refresh all → `MacosDisKR\Setup\Setup.ini`를 Load합니다.
+날짜는 Windows 로캘과 무관하게 한국어 요일이 나오도록 Lua 스크립트로 처리합니다.
 
-자세한 내용: [`docs/RAINMETER-KR.md`](docs/RAINMETER-KR.md)
+## 테마
 
-## 런처 커스터마이징
+Setup에서 전체 스킨을 한 번에 다음 스타일로 전환할 수 있습니다.
 
-`rainmeter/Skins/MacosDisKR/@Resources/Variables.inc`에서 프로그램 경로와 디자인 공통값을 한 번에 수정할 수 있습니다.
+- Dark Glass
+- Light Glass
 
-```ini
-ExplorerCommand=["explorer.exe"]
-BrowserCommand=["cmd.exe" /c start "" "https://www.google.com"]
-TerminalCommand=["wt.exe"]
-SettingsCommand=["cmd.exe" /c start "" "ms-settings:"]
+공통 색상과 실행 명령은 아래 파일에서 수정합니다.
+
+```text
+rainmeter/Skins/MacosDisKR/@Resources/Variables.inc
 ```
 
-## 참고한 프로젝트
-
-- `Runixe786/Macified-Windows` — 전체 macOS화 흐름 / Rainmeter / MyDockFinder
-- `SuperSpacer54376/Macnify-Windows` — Tahoe 계열 디자인 / 위젯 / Windows 11 구성
-- `rollecode/macos-dock-for-windows` — 미니멀 Dock 비율 / 아이콘 구성
-
-세 프로젝트의 역할 매핑은 [`docs/UPSTREAM.md`](docs/UPSTREAM.md)에 정리되어 있습니다.
+브라우저, 터미널, 탐색기, 설정 등의 실행 명령도 여기서 바꿀 수 있습니다.
 
 ## 웹 프로토타입
 
-루트의 `index.html`, `styles.css`, `app.js`는 디자인 확인용 프로토타입으로 유지합니다. 실제 바탕화면 사용은 Rainmeter 버전이 우선입니다.
+루트의 `index.html`, `styles.css`, `app.js`는 **디자인 참고용 미리보기**입니다. 실제 데스크톱 적용은 `rainmeter/`가 기준입니다.
 
-## Rainmeter 밖의 Windows 테마
+## Windows 전체 macOS화
 
-Rainmeter는 위젯/메뉴바/런처 레이어를 담당합니다. Explorer 전체 외형, 시스템 아이콘, 커서, Windows 테마 패치까지 원한다면 [`docs/INSTALL-KR.md`](docs/INSTALL-KR.md)의 선택형 단계를 추가로 적용할 수 있습니다.
+Rainmeter는 위젯 / 메뉴바 / Dock 영역을 담당합니다. Explorer 자체 블러, 창 스타일, 시스템 아이콘 변경은 별도 선택형 레이어입니다.
 
-시스템 패치 단계와 달리 현재 Rainmeter 스킨 자체는 Windows 시스템 DLL을 수정하지 않습니다.
+- ExplorerBlurMica
+- SecureUxTheme
+- 7TSP 계열 아이콘 팩
+- 기타 Windows 셸 커스터마이징
+
+이 부분은 Rainmeter 스킨과 분리해 유지합니다.
+
+## 자동 빌드
+
+`.github/workflows/build-rmskin.yml`이 `main` 변경 시 정식 `.rmskin` 패키지를 빌드합니다.
+
+최근 검증에서는 패키지 생성 및 GitHub Actions 아티팩트 업로드까지 성공했습니다.
