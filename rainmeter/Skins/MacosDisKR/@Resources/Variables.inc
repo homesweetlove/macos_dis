@@ -1,6 +1,6 @@
 ﻿[Variables]
-FontFace=Pretendard
-FontFallback=Malgun Gothic
+FontFace=Malgun Gothic
+FontFallback=Segoe UI
 TextColor=245,247,250,245
 TextMuted=245,247,250,150
 GlassColor=26,30,38,205
